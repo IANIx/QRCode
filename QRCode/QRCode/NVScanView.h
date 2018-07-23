@@ -13,8 +13,4 @@
 
 @property (nonatomic, assign) CGRect scanRect;
 
-
-- (void)addScanLineAnimation;
-- (void)removeScanLineAnimation;
-
 @end

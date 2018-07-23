@@ -12,6 +12,16 @@
 @required
 
 /**
+ 开始扫描线动画
+ */
+- (void)startLineAnimation;
+
+/**
+ 停止扫描线动画
+ */
+- (void)stopLineAnimation;
+
+/**
  显示活动指示器
  */
 - (void)showActivityIndicator;

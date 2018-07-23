@@ -28,7 +28,6 @@
     [self.scanner setupAVCapture];
     [self.scanner startScan:^(NSString *encodeStr, NSString *codeType) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.scanView removeScanLineAnimation];
             
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil
                                                                 message:encodeStr

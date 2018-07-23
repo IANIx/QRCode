@@ -129,16 +129,16 @@
     self.block = block;
     
     self.isStop = NO;
+    [self.targetView hiddenActivityIndicator];
     
     if(self.session && ![self.session isRunning]) {
         
         [self.session startRunning];
-        [self.targetView hiddenActivityIndicator];
+        [self.targetView startLineAnimation];
         
     }else {
         
         NSLog(@"[NVScanner]: startScan Failed!");
-        [self.targetView hiddenActivityIndicator];
         
     }
     
@@ -152,10 +152,12 @@
 -(void)continueScan {
     
     
-    if(self.session && [self.session isRunning]){
+    if(self.session && ![self.session isRunning]){
         
         
         self.isStop = NO;
+        [self.session startRunning];
+        [self.targetView startLineAnimation];
         
     }else {
         
@@ -189,7 +191,8 @@ didOutputMetadataObjects:(NSArray *)metadataObjects
             self.isStop = YES;
             
             [self.session stopRunning];
-            
+            [self.targetView stopLineAnimation];
+
             //播放音效
             NSURL *url=[[NSBundle mainBundle]URLForResource:@"scanSuccess.wav" withExtension:nil];
             SystemSoundID soundID=8787;

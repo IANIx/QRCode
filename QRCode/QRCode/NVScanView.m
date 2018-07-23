@@ -286,5 +286,12 @@ typedef void(^lightClickBlock)(UIButton *button);
     self.block = block;
 }
 
+- (void)startLineAnimation {
+    [self addScanLineAnimation];
+}
+
+- (void)stopLineAnimation {
+    [self removeScanLineAnimation];
+}
 
 @end
